@@ -4,12 +4,10 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/:totalUsers', function(req, res) {
-  var totalUsers = req.params.totalUsers;
+app.get('/:amount', function(req, res) {
+  var amount = req.params.amount;
 
-  var removed = 1;
-  var success = [];
-  child_process.exec('node remove_users.js ' + totalUsers, function(error, stdout, stderr) {
+  child_process.exec('node remove_users.js ' + amount, function(error, stdout, stderr) {
       res.send(stdout);
   });
 });
