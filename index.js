@@ -4,9 +4,9 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/:amount', function(req, res) {
+app.get('/delete-users/:amount', function(req, res) {
   var amount = req.params.amount;
-
+  console.log('delete amount %s', amount);
   child_process.exec('node remove_users.js ' + amount, function(error, stdout, stderr) {
       res.send(stdout);
   });
