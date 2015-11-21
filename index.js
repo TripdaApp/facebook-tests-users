@@ -12,7 +12,7 @@ app.get('/delete-users/:amount', function(req, res) {
   });
 });
 
-var server = app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function() {
   var host = server.address().address;
   var port = server.address().port;
 
